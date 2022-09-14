@@ -1,0 +1,22 @@
+import csv
+
+name = ['Jorell','Jackson','Daphne']
+method =['ESL',"In Situ"]
+lightsource = ['Normal(lab)','Normal(darkroom)', 'Polilight420nm']
+substrate = ['Tiles','Laminal','Wood']
+lightingangle = ['90','45','Grazzing']
+samples = []
+for n in name:
+    for m in method:
+        for s in substrate:
+            for ls in lightsource:
+                for la in lightingangle:
+                    a = [n,m,s,ls,la]
+                    samples.append(a)
+                    print(a)
+header = ['name','method','substrate','lightsource','lightangle', 'score(jorell)','score(jackson)','score(daphne)','score(average)']
+with open(r'C:\Users\James Bond\Documents\forgrading.csv', 'w', encoding='UTF8', newline='') as f:
+    # create the csv writer
+    writer = csv.writer(f)
+    writer.writerow(header)
+    writer.writerows(samples)
